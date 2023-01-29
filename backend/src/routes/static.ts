@@ -3,7 +3,6 @@ import { FastifyPluginAsync } from 'fastify';
 import FastifyStatic from '@fastify/static';
 
 const FRONTEND_PATH = path.resolve(__dirname, '../../frontend');
-console.log({ FRONTEND_PATH });
 
 const route: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   fastify.register(FastifyStatic, {
