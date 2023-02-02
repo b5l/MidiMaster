@@ -27,7 +27,8 @@
     "fastify": "^4.0.0",
     "fastify-cli": "^5.7.1",
     "fastify-plugin": "^4.5.0",
-    "midi": "^2.0.0"
+    "midi": "^2.0.0",
+    "rc": "^1.2.8"
   },
   "devDependencies": {
     "@types/midi": "^2.0.0",

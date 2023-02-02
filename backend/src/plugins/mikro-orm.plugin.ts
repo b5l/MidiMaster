@@ -8,13 +8,15 @@ import { FastifyPluginAsync } from 'fastify/types/plugin';
 import { FastifyInstance } from 'fastify/types/instance';
 import { FastifyRequest } from 'fastify/types/request';
 
+import config from '../lib/config';
+
 export const autoConfig: MikroORMOptions = {
   driver: MongoDriver,
   entities: [path.join(__dirname, '../entities')],
   entitiesTs: [path.join(__dirname, '../entities')],
   metadataProvider: TsMorphMetadataProvider,
-  clientUrl: 'mongodb://localhost:27021',
-  dbName: 'midimaster'
+  clientUrl: config.get('mongo.clientUrl'),
+  dbName: config.get('mongo.dbName')
 };
 
 const fastifyMikroORM: FastifyPluginAsync<MikroORMOptions> = async function (fastify: FastifyInstance, options: MikroORMOptions) {
