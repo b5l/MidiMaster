@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    image: midimaster-backend:latest
+    command: pnpm run dev
+    working_dir: /app/backend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+    build:
+      dockerfile: ./docker/backend.Dockerfile
+      context: .
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6
+    ports:
+      - '27021:27017'
+
